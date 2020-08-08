@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Markdown Editor</title>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/1.1.1/marked.js" 
+         integrity="sha512-WUj/9d0+WiqmZ3fHLdrjLmuwMnattuKZKOcN03r4++v6IDlTO27Ow/+/2zoiqzDWKn3uDa9skO6Vun5wWKJ9sg==" 
+         crossorigin="anonymous"></script>
+        <script src="https://unpkg.com/lodash@4.16.0"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/sanitize-html/1.27.2/sanitize-html.min.js" 
+         integrity="sha512-ov7OHRLbyCepKhkNeablOKagxc6N7BRJ6r8nqlL34QVaUcn5O7HYKcoT1XYoSLI53ywG8RbM2/2hyV4UgLUoww==" 
+         crossorigin="anonymous"></script>
+        <link rel="stylesheet" type="text/css" href="style.css" />
+    </head>
+    <body>
+        <div id="app">
+            <div class="edit-area">
+                <h1 class="area-title">Editor</h1>
+                <textarea id="editor" v-model="markdownText" v-on:input="update"></textarea>
+            </div>
+            <div class="preview-area">
+                <h1 class="area-title">Preview</h1>
+                <div id="preview" v-html="previewMarkdown"></div>
+            </div>
+        </div>
+    </body>
+    <script src="editor.js"></script>
+</html>
