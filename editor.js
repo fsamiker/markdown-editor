@@ -1,14 +1,53 @@
+const sample = 
+`<!--- Begin Editing Here -->
+
+# Heading 1
+## Heading 2
+### Heading 3
+</br>
+
+## These are lists</br>
+</br>
+
+- apple
+- banana
+- kiwi
+
+</br>
+
+1. one
+2. two
+3. three
+
+</br>
+
+## Font Options</br>
+
+**This is bold text**
+
+__This is bold text__
+
+*This is italic text*
+
+_This is italic text_
+`;
+
 var vue = new Vue({
     el: "#app",
     data: {
-        markdownText: "# Hello World\n- something\n- something\n\n# another list\n\n1. something else\n2. something else",
+        sampleText: sample,
+        markdownText: "",
         editorShow: true,
         previewShow: true,
     },
     computed:{
         previewMarkdown: function() {
-            return sanitizeHtml(marked(this.markdownText),
-             {allowedTags: sanitizeHtml.defaults.allowedTags.concat([ 'img', 'h1', 'h2' ])});
+            let text = this.markdownText;
+            if (!text) {
+                text = this.sampleText;
+            }
+            return sanitizeHtml(marked(text),
+             {allowedTags: sanitizeHtml.defaults.allowedTags.concat([ 'img', 'h1', 'h2', 's' ])});
         }
     },
     methods: {

@@ -28,7 +28,7 @@
                 <h1 class="area-title">Editor</h1>
                 <div class="toolbar">
                 </div>
-                <textarea id="editor" v-model="markdownText" v-on:input="update"></textarea>
+                <textarea id="editor" v-model="markdownText" v-on:input="update" :placeholder="sampleText"></textarea>
             </div>
             <div class="preview-area" v-show="previewShow">
                 <h1 class="area-title">Preview</h1>
